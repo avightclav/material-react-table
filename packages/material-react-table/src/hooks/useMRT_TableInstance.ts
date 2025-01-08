@@ -152,7 +152,7 @@ export const useMRT_TableInstance = <TData extends MRT_RowData>(
     initialState?.showColumnFilters ?? false,
   );
   const [showGlobalFilter, setShowGlobalFilter] = useState<boolean>(
-    initialState?.showGlobalFilter ?? false,
+    () => initialState?.showGlobalFilter ?? Boolean(definedTableOptions.state?.globalFilter ?? definedTableOptions.initialState?.globalFilter),
   );
   const [showToolbarDropZone, setShowToolbarDropZone] = useState<boolean>(
     initialState?.showToolbarDropZone ?? false,
